@@ -8,14 +8,14 @@ const navLinks = [
     url: "#",
   },
   {
+    display: "Courses",
+    url: "#",
+  },
+  {
     display: "About",
     url: "#",
   },
 
-  {
-    display: "Courses",
-    url: "#",
-  },
   {
     display: "Pages",
     url: "#",

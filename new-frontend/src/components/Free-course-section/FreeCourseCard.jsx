@@ -1,13 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const FreeCourseCard = (props) => {
   const { imgUrl, title, students, rating } = props.item;
-
+  const navigate = useNavigate();
+  const handleSingleCourse = () => {
+    navigate("/single-course");
+  };
   return (
     <div className="single__free__course">
       <div className="free__course__img mb-5">
         <img src={imgUrl} alt="" className="w-100" />
-        <button className="btn free__btn">Free</button>
+        <button className="btn free__btn" onClick={handleSingleCourse}>
+          Enroll Now
+        </button>
       </div>
 
       <div className="free__course__details">

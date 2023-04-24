@@ -1,11 +1,16 @@
 import React, { useRef } from "react";
 import { Container } from "reactstrap";
 import "./header.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const navLinks = [
   {
     display: "Home",
-    url: "#",
+    url: "/",
+  },
+  {
+    display: "Courses",
+    url: "/courses",
   },
   {
     display: "About",
@@ -13,30 +18,35 @@ const navLinks = [
   },
 
   {
-    display: "Courses",
-    url: "#",
-  },
-  {
-    display: "Pages",
-    url: "#",
-  },
-  {
     display: "Blog",
     url: "#",
   },
+  {
+    display: "login",
+    url: "/login",
+  },
 ];
 
-const Header = () => {
+const Header = ({ bgColor }) => {
   const menuRef = useRef();
 
+  const navigate = useNavigate();
+
   const menuToggle = () => menuRef.current.classList.toggle("active__menu");
+  const handlePageChange = () => {
+    navigate("/");
+  };
 
   return (
     <header className="header">
       <Container>
         <div className="navigation d-flex align-items-center justify-content-between">
           <div className="logo">
-            <h2 className=" d-flex align-items-center gap-1">
+            <h2
+              className=" d-flex align-items-center gap-1"
+              onClick={handlePageChange}
+              style={{ cursor: "pointer" }}
+            >
               <i class="ri-pantone-line"></i> Learners.
             </h2>
           </div>
@@ -44,11 +54,13 @@ const Header = () => {
           <div className="nav d-flex align-items-center gap-5">
             <div className="nav__menu" ref={menuRef} onClick={menuToggle}>
               <ul className="nav__list">
-                {navLinks.map((item, index) => (
-                  <li key={index} className="nav__item">
-                    <a href={item.url}>{item.display}</a>
-                  </li>
-                ))}
+                {navLinks.map((item, index) => {
+                  return (
+                    <li key={index} className="nav__item">
+                      <Link to={item.url}>{item.display}</Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 

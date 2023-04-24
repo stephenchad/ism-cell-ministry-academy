@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CourseCard = (props) => {
   const { imgUrl, title, lesson, students, rating } = props.item;
+  const navigate = useNavigate();
+  const handleSingleCourse = () => {
+    navigate("/single-course");
+  };
 
   return (
     <div className="single__course__item">
@@ -28,7 +33,13 @@ const CourseCard = (props) => {
           </p>
 
           <p className="enroll d-flex align-items-center gap-1">
-            <a href="#"> Enroll Now</a>
+            <span
+              style={{ color: "#17bf9e", cursor: "pointer" }}
+              onClick={handleSingleCourse}
+            >
+              {" "}
+              Enroll Now
+            </span>
           </p>
         </div>
       </div>
