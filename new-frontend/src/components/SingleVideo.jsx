@@ -43,7 +43,7 @@ const SingleVideo = () => {
                 studentComments.map((comment, index) => (
                   <div key={index} className="mb-2">
                     <p>{comment}</p>
-                    <small className="text-muted">Posted by: Student</small>
+                    {/* <small className="text-muted">Posted by: Student</small> */}
                     <hr />
                     <span style={{ cursor: "pointer", color: "#0d6efd" }}>
                       Reply
